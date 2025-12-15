@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MusicVault - Your Personal Music Library</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'slide-up': 'slideUp 0.5s ease-out',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-track {
+      background: rgba(255, 255, 255, 0.2);
+      height: 6px;
+      border-radius: 3px;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #8b5cf6;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      transition: all 0.2s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background: #a78bfa;
+      transform: scale(1.2);
+    }
+    input[type="range"]::-moz-range-track {
+      background: rgba(255, 255, 255, 0.2);
+      height: 6px;
+      border-radius: 3px;
+    }
+    input[type="range"]::-moz-range-thumb {
+      background: #8b5cf6;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      border: none;
+      transition: all 0.2s;
+    }
+    input[type="range"]::-moz-range-thumb:hover {
+      background: #a78bfa;
+      transform: scale(1.2);
+    }
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease-in;
+    }
+    .page.active {
+      display: block;
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white min-h-screen">
+
+<!-- NAVBAR -->
+<nav class="glass-effect sticky top-0 z-50 backdrop-blur-lg">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <a href="#home" class="flex items-center space-x-2 group">
+        <span class="text-3xl">🎵</span>
+        <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:from-pink-400 group-hover:to-purple-400 transition-all">
+          MusicVault
+        </h1>
+      </a>
+      <div class="flex space-x-6 items-center">
+        <a href="#home" class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Home</a>
+        <a href="#library" class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Library</a>
+        <a href="#playlists" class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Playlists</a>
+        <a href="#profile" class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Profile</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGES -->
+<main class="container mx-auto px-6 py-8">
+
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <div class="text-center mt-16 mb-20 animate-slide-up">
+      <div class="mb-8">
+        <h2 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
+          Your Personal Music Library
+        </h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          Organize, play, and enjoy your music collection with style. Create playlists, visualize your tracks, and immerse yourself in the perfect sound experience.
+        </p>
+      </div>
+      <a href="#library"
+        class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold text-lg hover:from-purple-500 hover:to-pink-500 transform hover:scale-105 transition-all shadow-lg hover:shadow-purple-500/50">
+        🎶 Get Started
+      </a>
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="glass-effect rounded-2xl p-6 card-hover">
+          <div class="text-4xl mb-4">📚</div>
+          <h3 class="text-xl font-bold mb-2">Music Library</h3>
+          <p class="text-gray-400">Upload and organize all your favorite tracks in one place</p>
+        </div>
+        <div class="glass-effect rounded-2xl p-6 card-hover">
+          <div class="text-4xl mb-4">🎧</div>
+          <h3 class="text-xl font-bold mb-2">Audio Visualizer</h3>
+          <p class="text-gray-400">Experience your music with stunning visual representations</p>
+        </div>
+        <div class="glass-effect rounded-2xl p-6 card-hover">
+          <div class="text-4xl mb-4">📋</div>
+          <h3 class="text-xl font-bold mb-2">Playlists</h3>
+          <p class="text-gray-400">Create and manage custom playlists for every mood</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section id="library" class="page">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-8">
+        <h2 class="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Your Music Library
+        </h2>
+        <p class="text-gray-400">Upload and manage your music collection</p>
+      </div>
+
+      <div class="glass-effect rounded-2xl p-8 mb-6">
+        <label for="upload" class="block mb-4">
+          <div class="border-2 border-dashed border-purple-500/50 rounded-xl p-8 text-center cursor-pointer hover:border-purple-500 transition-all hover:bg-purple-500/10">
+            <div class="text-5xl mb-4">📁</div>
+            <p class="text-lg font-semibold mb-2">Drop your music files here</p>
+            <p class="text-sm text-gray-400">or click to browse (supports multiple files)</p>
+          </div>
+        </label>
+        <input type="file" multiple accept="audio/*" id="upload" class="hidden" />
+      </div>
+
+      <div id="songList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- PLAYER -->
+  <section id="player" class="page">
+    <div class="max-w-4xl mx-auto">
+      <div class="glass-effect rounded-2xl p-8">
+        <div class="text-center mb-8">
+          <div class="text-6xl mb-4">🎵</div>
+          <h2 id="nowPlaying" class="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Select a song
+          </h2>
+          <p id="songArtist" class="text-gray-400 text-lg"></p>
+        </div>
+
+        <audio id="audio"></audio>
+
+        <div class="space-y-6">
+          <!-- Progress Bar -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm text-gray-400">
+              <span id="currentTime">0:00</span>
+              <span id="totalTime">0:00</span>
+            </div>
+            <input type="range" id="seek" class="w-full" min="0" max="100" value="0" />
+          </div>
+
+          <!-- Controls -->
+          <div class="flex items-center justify-center gap-4">
+            <button onclick="togglePlay()" id="playPauseBtn"
+              class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 flex items-center justify-center text-2xl transform hover:scale-110 transition-all shadow-lg">
+              ▶
+            </button>
+          </div>
+
+          <!-- Volume Control -->
+          <div class="flex items-center gap-4">
+            <span class="text-xl">🔊</span>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1" class="flex-1" />
+            <span id="volumeValue" class="text-sm text-gray-400 w-12">100%</span>
+          </div>
+        </div>
+
+        <!-- Visualizer -->
+        <div class="mt-8">
+          <canvas id="visualizer" class="w-full h-64 bg-gradient-to-b from-purple-900/50 to-pink-900/50 rounded-xl"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYLISTS -->
+  <section id="playlists" class="page">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-8">
+        <h2 class="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Your Playlists
+        </h2>
+        <p class="text-gray-400">Create and organize your music collections</p>
+      </div>
+
+      <div class="glass-effect rounded-2xl p-6 mb-6">
+        <div class="flex gap-4">
+          <input id="playlistName" placeholder="Enter playlist name..."
+            class="flex-1 px-4 py-3 rounded-xl bg-gray-800/50 border border-purple-500/30 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all" />
+          <button onclick="createPlaylist()"
+            class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold hover:from-purple-500 hover:to-pink-500 transform hover:scale-105 transition-all shadow-lg">
+            ➕ Create Playlist
+          </button>
+        </div>
+      </div>
+
+      <div id="playlistList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="profile" class="page">
+    <div class="max-w-4xl mx-auto">
+      <div class="mb-8">
+        <h2 class="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Profile Settings
+        </h2>
+        <p class="text-gray-400">Customize your MusicVault experience</p>
+      </div>
+
+      <div class="glass-effect rounded-2xl p-8">
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Theme</h3>
+              <p class="text-gray-400">Switch between light and dark mode</p>
+            </div>
+            <button onclick="toggleTheme()"
+              class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold hover:from-purple-500 hover:to-pink-500 transform hover:scale-105 transition-all shadow-lg">
+              🌓 Toggle Theme
+            </button>
+          </div>
+
+          <div class="border-t border-gray-700 pt-6">
+            <h3 class="text-xl font-semibold mb-4">About MusicVault</h3>
+            <p class="text-gray-400 leading-relaxed">
+              MusicVault is your personal music library manager. Upload your favorite tracks, create playlists, 
+              and enjoy a beautiful audio experience with our built-in visualizer. All your music, organized and 
+              accessible in one stunning interface.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- SCRIPTS -->
+<script src="JS/app.js"></script>
+<script src="JS/library.js"></script>
+<script src="JS/player.js"></script>
+<script src="JS/playlist.js"></script>
+<script src="JS/profile.js"></script>
+<script src="JS/visualizer.js"></script>
+
+<script>
+  // Handle hash-based navigation
+  function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(p => {
+      p.classList.remove("active");
+    });
+    const page = document.getElementById(pageId);
+    if (page) {
+      page.classList.add("active");
+      // Update active nav link
+      document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.remove("bg-purple-600/30");
+        if (link.getAttribute("href") === `#${pageId}`) {
+          link.classList.add("bg-purple-600/30");
+        }
+      });
+    }
+  }
+
+  // Handle initial hash
+  window.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash.slice(1) || "home";
+    showPage(hash);
+  });
+
+  // Handle hash changes
+  window.addEventListener("hashchange", () => {
+    const hash = window.location.hash.slice(1) || "home";
+    showPage(hash);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  // Update volume display
+  const volumeSlider = document.getElementById("volume");
+  const volumeValue = document.getElementById("volumeValue");
+  if (volumeSlider && volumeValue) {
+    volumeSlider.addEventListener("input", (e) => {
+      volumeValue.textContent = Math.round(e.target.value * 100) + "%";
+    });
+  }
+</script>
+
+</body>
+</html>
