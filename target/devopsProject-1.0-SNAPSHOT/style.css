@@ -1,0 +1,178 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Range Input Styles */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+    background: rgba(255, 255, 255, 0.2);
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #8b5cf6;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #a78bfa;
+    transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-track {
+    background: rgba(255, 255, 255, 0.2);
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    background: #8b5cf6;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.2s;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #a78bfa;
+    transform: scale(1.2);
+}
+
+/* General Layout */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    /* Fallback */
+}
+
+.page {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Nav Link State */
+.nav-link.active {
+    background-color: rgba(147, 51, 234, 0.3);
+    /* bg-purple-600/30 */
+}
+
+/* From Uiverse.io by SelfMadeSystem - Renamed to .uiverse-bg */
+.uiverse-bg {
+    position: fixed;
+    /* Changed from absolute to fixed for full screen coverage during scroll */
+    inset: -1em;
+    z-index: -1;
+    /* Behind content */
+    --c: 7px;
+    background-color: #000;
+    background-image: radial-gradient(circle at 50% 50%,
+            #0000 1.5px,
+            #000 0 var(--c),
+            #0000 var(--c)),
+        radial-gradient(circle at 50% 50%,
+            #0000 1.5px,
+            #000 0 var(--c),
+            #0000 var(--c)),
+        radial-gradient(circle at 50% 50%, #f00, #f000 60%),
+        radial-gradient(circle at 50% 50%, #ff0, #ff00 60%),
+        radial-gradient(circle at 50% 50%, #0f0, #0f00 60%),
+        radial-gradient(ellipse at 50% 50%, #00f, #00f0 60%);
+    background-size:
+        12px 20.7846097px,
+        12px 20.7846097px,
+        200% 200%,
+        200% 200%,
+        200% 200%,
+        200% 20.7846097px;
+    --p: 0px 0px, 6px 10.39230485px;
+    background-position:
+        var(--p),
+        0% 0%,
+        0% 0%,
+        0% 0px;
+    animation:
+        wee 40s linear infinite,
+        filt 6s linear infinite;
+    opacity: 0.8;
+    /* Slightly dim it to ensure text readiness if needed */
+}
+
+@keyframes filt {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes wee {
+    0% {
+        background-position:
+            var(--p),
+            800% 400%,
+            1000% -400%,
+            -1200% -600%,
+            400% 41.5692194px;
+    }
+
+    to {
+        background-position:
+            var(--p),
+            0% 0%,
+            0% 0%,
+            0% 0%,
+            0% 0%;
+    }
+}

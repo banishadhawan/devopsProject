@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MusicVault - Home</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'slide-up': 'slideUp 0.5s ease-out',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="text-white min-h-screen">
+  <div class="uiverse-bg"></div>
+
+  <!-- NAVBAR -->
+  <nav class="glass-effect sticky top-0 z-50 backdrop-blur-lg">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2 group">
+          <i class="fas fa-music text-3xl"></i>
+          <h1
+            class="text-2xl font-bold">
+            MusicVault
+          </h1>
+        </a>
+        <div class="flex space-x-6 items-center">
+          <a href="index.html"
+            class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium active">Home</a>
+          <a href="Lib.html"
+            class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Library</a>
+          <a href="player.html"
+            class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Player</a>
+          <a href="Playlist.html"
+            class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Playlists</a>
+          <a href="Profile.html"
+            class="nav-link px-3 py-2 rounded-lg hover:bg-white/10 transition-all font-medium">Profile</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME PAGE CONTENT -->
+  <main class="container mx-auto px-6 py-8">
+    <section id="home" class="page">
+      <div class="text-center mt-16 mb-20 animate-slide-up">
+        <div class="mb-8">
+          <h2
+            class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            Your Personal Music Library
+          </h2>
+          <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+            Organize, play, and enjoy your music collection with style. Create playlists, visualize your tracks, and
+            immerse yourself in the perfect sound experience.
+          </p>
+        </div>
+        <a href="Lib.html"
+          class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold text-lg hover:from-purple-500 hover:to-pink-500 transform hover:scale-105 transition-all shadow-lg hover:shadow-purple-500/50">
+          <i class="fas fa-play mr-2"></i>Get Started
+        </a>
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div class="glass-effect rounded-2xl p-6 card-hover">
+            <div class="text-4xl mb-4"><i class="fas fa-compact-disc"></i></div>
+            <h3 class="text-xl font-bold mb-2">Music Library</h3>
+            <p class="text-gray-400">Upload and organize all your favorite tracks in one place</p>
+          </div>
+          <div class="glass-effect rounded-2xl p-6 card-hover">
+            <div class="text-4xl mb-4"><i class="fas fa-headphones"></i></div>
+            <h3 class="text-xl font-bold mb-2">Audio Visualizer</h3>
+            <p class="text-gray-400">Experience your music with stunning visual representations</p>
+          </div>
+          <div class="glass-effect rounded-2xl p-6 card-hover">
+            <div class="text-4xl mb-4"><i class="fas fa-list"></i></div>
+            <h3 class="text-xl font-bold mb-2">Playlists</h3>
+            <p class="text-gray-400">Create and manage custom playlists for every mood</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="JS/auth.js"></script>
+  <script src="JS/app.js"></script>
+</body>
+
+</html>
